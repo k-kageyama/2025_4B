@@ -1,8 +1,82 @@
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
- <title> </title>
+  <meta charset="UTF-8">
+  <title>伏見区の魅力紹介｜コロナ禍と自動車盗難のデータも解説</title>
+  <meta name="description" content="コロナ禍で京都府の自動車盗難は減少。しかし伏見区は変わらず…でも観光や地元の魅力もたくさん！写真とともに紹介します。">
+  <style>
+    body { font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif; background: #f8f8ff; margin: 0; padding: 0;}
+    header, footer { text-align: center; padding: 1.5em 0; background: #ececec;}
+    .container { max-width: 900px; margin: auto; padding: 2em;}
+    .section { margin-bottom: 2.5em; }
+    h1 { color: #205081; font-size: 2em;}
+    h2 { border-left: 6px solid #205081; padding-left: 10px;}
+    .summary { background: #f5fffa; padding: 1em; border-radius: 8px; }
+    .img-box { text-align: center; margin: 1.5em 0;}
+    .img-box img { width: 80%; max-width: 400px; border-radius: 10px; box-shadow: 0 2px 8px #ccc;}
+    .source { font-size: 0.9em; color: #888; margin-top: 1em; }
+    .event { background: #e7f4ff; padding: 1em; border-radius: 8px; margin-top: 1em; }
+    a { color: #0080c0; }
+  </style>
 </head>
 <body>
- 
+  <header>
+    <h1>伏見区の魅力を地元目線でご紹介</h1>
+    <div>出典：京都府公式データ・伏見区観光公式ページ</div>
+    <div style="font-size:0.9em; margin-top:0.5em;">
+      powered by <a href="https://gptjp.net/" target="_blank">gptjp.net</a>
+    </div>
+  </header>
+  <div class="container">
+
+    <div class="section summary">
+      <h2>コロナ禍と自動車盗難数の変化（グラフは後で入れてね）</h2>
+      <canvas id="theftChart" width="700" height="400"></canvas>
+      <div class="source">ここに自動車盗難数の推移グラフを挿入</div>
+      <p>
+        京都府全体で自動車盗難は減少しましたが、<strong>伏見区だけは変化が見られませんでした</strong>。<br>
+        でも、そんな伏見区にもたくさんの“いいところ”があります！
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>伏見区のおすすめ観光スポット</h2>
+      <div class="img-box">
+        <!-- ここに公式写真やイベント写真を追加できます。例： -->
+        <img src="https://kyoto-fushimi-kanko.com/wp-content/uploads/2021/05/fushimiinari.jpg" alt="伏見稲荷大社" />
+        <div style="font-size:0.95em; color:#555;">伏見稲荷大社（公式サイト写真より）</div>
+      </div>
+      <ul>
+        <li>伏見稲荷大社（<a href="https://inari.jp/" target="_blank">公式サイト</a>）</li>
+        <li>酒蔵めぐり（<a href="https://kyoto-fushimi-kanko.com/" target="_blank">伏見観光協会</a>）</li>
+        <li>寺田屋（坂本龍馬ゆかり）</li>
+        <li>宇治川派流（春の桜が美しい）</li>
+      </ul>
+      <div class="event">
+        <b>イベント情報：</b><br>
+        <ul>
+          <li>【春】伏見稲荷大社 初午大祭</li>
+          <li>【秋】伏見夢百衆の「新酒まつり」</li>
+        </ul>
+        <div style="font-size:0.95em;">
+          イベントの詳細は <a href="https://kyoto-fushimi-kanko.com/event/" target="_blank">伏見観光協会イベント情報</a> をご覧ください。
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>地元民からひとこと</h2>
+      <p>
+        伏見区には昔からの歴史や、地元ならではの温かい雰囲気があります。<br>
+        治安面で心配なニュースもありますが、観光客へのおもてなしや、美味しいグルメも豊富！<br>
+        ぜひ、実際に伏見区を歩いて、その魅力を体感してください。
+      </p>
+    </div>
+  </div>
+  <footer>
+    <div>
+      本サイトは「<a href="https://gptjp.net/" target="_blank">gptjp.net</a>」によって作成されました。
+    </div>
+  </footer>
 </body>
 </html>
