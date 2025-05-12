@@ -2,30 +2,137 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>伏見区の魅力紹介｜コロナ禍と自動車盗難のデータも解説</title>
-  <meta name="description" content="コロナ禍で京都府の自動車盗難は減少。しかし伏見区は変わらず…でも観光や地元の魅力もたくさん！写真とともに紹介します。">
-  <link rel="stylesheet" href="style.css">
+  <title>伏見区の魅力紹介｜名水アニメーション付き</title>
+  <meta name="description" content="伏見区の名水を人型キャラクターが順に訪れる楽しいマップアニメーション。">
+  <style>
+    body {
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+      background: #f8f8ff;
+      margin: 0;
+      padding: 0;
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+    header, footer {
+      text-align: center;
+      padding: 2em 0;
+      background: #ececec;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5em;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 3em 1em;
+    }
+    .section {
+      margin-bottom: 3em;
+    }
+    h2 {
+      border-left: 8px solid #205081;
+      padding-left: 15px;
+      font-size: 2rem;
+      color: #205081;
+      margin-bottom: 1em;
+    }
+    .summary {
+      background: #f5fffa;
+      padding: 1.5em;
+      border-radius: 10px;
+    }
+    .img-box {
+      text-align: center;
+      margin: 2em 0;
+    }
+    .img-box img {
+      width: 90%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    .source {
+      font-size: 0.9em;
+      color: #888;
+      margin-top: 0.5em;
+    }
+    .event {
+      background: #e7f4ff;
+      padding: 1em;
+      border-radius: 10px;
+      margin-top: 1em;
+    }
+    a {
+      color: #0080c0;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .map-container {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      max-width: 1000px;
+    }
+    #meisuiMap {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    }
+    #character {
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      background-color: crimson;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 36px;
+      font-size: 20px;
+      color: #fff;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+    #startButton {
+      padding: 0.8em 2em;
+      font-size: 1.1rem;
+      background: #205081;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 1em;
+    }
+    #startButton:hover {
+      background: #1a3e66;
+    }
+
+    footer {
+      margin-top: 4em;
+      font-size: 1rem;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>伏見区の魅力を地元目線でご紹介</h1>
     <div>出典：京都府公式データ・伏見区観光公式ページ</div>
-    <div style="font-size:0.9em; margin-top:0.5em;"></div>
+    <div style="font-size:0.95em; margin-top:0.5em;">
+      powered by <a href="https://gptjp.net/" target="_blank">gptjp.net</a>
+    </div>
   </header>
 
   <div class="container">
+
     <div class="section summary">
-      <h2>コロナ禍と自動車盗難数の変化（グラフは後で入れてね）</h2>
-
-      <!-- グラフが不要であれば以下の行を削除 -->
-      <!-- <canvas id="theftChart" width="700" height="150" style="display: block; margin-bottom: 1em;"></canvas> -->
-
-      <div class="img-box">
-        <img src="シート 2.png" alt="伏見稲荷大社" />
-        <div class="source">"シート2.png"</div>
-        <div><a href="シート 2.png" download>画像を拡大表示(ダウンロード可)</a></div>
-      </div>
-
+      <h2>コロナ禍と自動車盗難数の変化</h2>
+      <canvas id="theftChart" width="800" height="400" style="background:#fff; border:1px solid #ccc;"></canvas>
+      <div class="source">ここに自動車盗難数の推移グラフを挿入</div>
       <p>
         京都府全体で自動車盗難は減少しましたが、<strong>伏見区だけは変化が見られませんでした</strong>。<br>
         でも、そんな伏見区にもたくさんの“いいところ”があります！
@@ -33,10 +140,21 @@
     </div>
 
     <div class="section">
+      <h2>伏見名水マップをめぐるアニメーション</h2>
+      <p>下のボタンを押すと、人型キャラが10か所の名水を順番に訪れます。</p>
+      <button id="startButton" onclick="startAnimation()">名水めぐり開始</button>
+
+      <div class="map-container" style="margin-top:2em;">
+        <img src="image.png" id="meisuiMap" alt="名水マップ">
+        <div id="character">🧍</div>
+      </div>
+    </div>
+
+    <div class="section">
       <h2>伏見区のおすすめ観光スポット</h2>
       <div class="img-box">
         <img src="main_img5.jpg" alt="伏見稲荷大社" />
-        <div class="caption">伏見稲荷大社（公式サイト写真より）</div>
+        <div style="font-size:1rem; color:#555;">伏見稲荷大社（公式サイト写真より）</div>
       </div>
       <ul>
         <li>伏見稲荷大社（<a href="https://inari.jp/" target="_blank">公式サイト</a>）</li>
@@ -45,13 +163,13 @@
         <li>宇治川派流（春の桜が美しい）</li>
       </ul>
       <div class="event">
-        <b>イベント情報：</b><br>
+        <b>イベント情報：</b>
         <ul>
           <li>【春】伏見稲荷大社 初午大祭</li>
           <li>【秋】伏見夢百衆の「新酒まつり」</li>
         </ul>
-        <div class="caption">
-          イベントの詳細は <a href="https://kyoto-fushimi-kanko.com/event/" target="_blank">伏見観光協会イベント情報</a> をご覧ください。
+        <div>
+          詳細は <a href="https://kyoto-fushimi-kanko.com/event/" target="_blank">伏見観光協会イベント情報</a> をご覧ください。
         </div>
       </div>
     </div>
@@ -67,7 +185,47 @@
   </div>
 
   <footer>
-    <div></div>
+    伏見の名水や文化をもっと深く知りたい方は 👉 <a href="https://bit.ly/4iJ4576" target="_blank">こちら</a> をチェック！
   </footer>
+
+  <script>
+    const spots = [
+      { top: 6.0, left: 91.0 },   // 赤 - 金運清水
+      { top: 13.0, left: 81.2 },  // 黒 - 御香水
+      { top: 10.8, left: 18.5 },  // 灰 - 不二の水
+      { top: 26.4, left: 47.6 },  // 橙 - 清和の井
+      { top: 41.0, left: 42.8 },  // 黄 - 梅辻井水
+      { top: 46.8, left: 76.0 },  // 緑 - 常磐井水
+      { top: 54.5, left: 26.0 },  // 水 - 白菊水
+      { top: 58.5, left: 36.5 },  // 青 - 秋水
+      { top: 65.0, left: 58.8 },  // 紫 - 小松清水
+      { top: 68.5, left: 49.0 }   // 桃 - 閼伽水
+    ];
+
+    const character = document.getElementById('character');
+    let index = 0;
+
+    function moveCharacter() {
+      if (index < spots.length) {
+        const spot = spots[index];
+        character.style.top = spot.top + '%';
+        character.style.left = spot.left + '%';
+        index++;
+        setTimeout(moveCharacter, 1200);
+      }
+    }
+
+    function startAnimation() {
+      index = 0;
+      character.style.top = spots[0].top + '%';
+      character.style.left = spots[0].left + '%';
+      setTimeout(moveCharacter, 1000);
+    }
+
+    window.onload = () => {
+      character.style.top = spots[0].top + '%';
+      character.style.left = spots[0].left + '%';
+    };
+  </script>
 </body>
 </html>
