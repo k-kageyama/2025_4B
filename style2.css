@@ -1,0 +1,67 @@
+body {
+  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+  background: #f8f8ff;
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  text-align: center;
+  padding: 1.5em 0;
+  background: #ececec;
+}
+
+.container {
+  max-width: 700px;     /* ← 中央寄せ感を強調 */
+  margin: auto;
+  padding: 2em 1.2em;   /* スマホ対応のため横paddingは残す */
+}
+
+.section {
+  margin-bottom: 2.5em;
+}
+
+h1 {
+  color: #205081;
+  font-size: 2em;
+}
+
+h2 {
+  border-left: 6px solid #205081;
+  padding-left: 10px;
+}
+
+.summary {
+  background: #f5fffa;
+  padding: 1em;
+  border-radius: 8px;
+}
+
+.img-box {
+  text-align: center;
+  margin: 0.5em 0 1em 0;
+}
+
+.img-box img {
+  width: 100%;
+  max-width: 100%;   /* containerの幅に合わせる */
+  border-radius: 0px;
+  box-shadow: 0 2px 8px #ccc;
+}
+
+.caption, .source {
+  font-size: 0.95em;
+  color: #555;
+  margin-top: 0.5em;
+}
+
+.event {
+  background: #e7f4ff;
+  padding: 1em;
+  border-radius: 8px;
+  margin-top: 1em;
+}
+
+a {
+  color: #0080c0;
+}
