@@ -4,21 +4,7 @@
   <meta charset="UTF-8">
   <title>伏見区の魅力紹介｜コロナ禍と自動車盗難のデータも解説</title>
   <meta name="description" content="コロナ禍で京都府の自動車盗難は減少。しかし伏見区は変わらず…でも観光や地元の魅力もたくさん！写真とともに紹介します。">
-  <style>
-    body { font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif; background: #f8f8ff; margin: 0; padding: 0;}
-    header, footer { text-align: center; padding: 1.5em 0; background: #ececec;}
-    .container { max-width: 900px; margin: auto; padding: 2em;}
-    .section { margin-bottom: 2.5em; }
-    h1 { color: #205081; font-size: 2em;}
-    h2 { border-left: 6px solid #205081; padding-left: 10px;}
-    .summary { background: #f5fffa; padding: 1em; border-radius: 8px; }
-    .img-box { text-align: center; margin: 1.5em 0;}
-    .img-box img { width: 300%; max-width: 900px; border-radius: 0px; box-shadow: 0 2px 8px #ccc; }
-
-    .source { font-size: 0.9em; color: #888; margin-top: 1em; }
-    .event { background: #e7f4ff; padding: 1em; border-radius: 8px; margin-top: 1em; }
-    a { color: #0080c0; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
@@ -26,18 +12,20 @@
     <div>出典：京都府公式データ・伏見区観光公式ページ</div>
     <div style="font-size:0.9em; margin-top:0.5em;"></div>
   </header>
-  <div class="container">
 
+  <div class="container">
     <div class="section summary">
       <h2>コロナ禍と自動車盗難数の変化（グラフは後で入れてね）</h2>
-      <canvas id="theftChart" width="700" height="400"></canvas>
-      <!-- 画像を中央に配置し、サイズを調整 -->
+
+      <!-- グラフが不要であれば以下の行を削除 -->
+      <!-- <canvas id="theftChart" width="700" height="150" style="display: block; margin-bottom: 1em;"></canvas> -->
+
       <div class="img-box">
         <img src="シート 2.png" alt="伏見稲荷大社" />
         <div class="source">"シート2.png"</div>
-        <!-- ダウンロードURLを追加 -->
         <div><a href="シート 2.png" download>画像を拡大表示(ダウンロード可)</a></div>
       </div>
+
       <p>
         京都府全体で自動車盗難は減少しましたが、<strong>伏見区だけは変化が見られませんでした</strong>。<br>
         でも、そんな伏見区にもたくさんの“いいところ”があります！
@@ -48,7 +36,7 @@
       <h2>伏見区のおすすめ観光スポット</h2>
       <div class="img-box">
         <img src="main_img5.jpg" alt="伏見稲荷大社" />
-        <div style="font-size:0.95em; color:#555;">伏見稲荷大社（公式サイト写真より）</div>
+        <div class="caption">伏見稲荷大社（公式サイト写真より）</div>
       </div>
       <ul>
         <li>伏見稲荷大社（<a href="https://inari.jp/" target="_blank">公式サイト</a>）</li>
@@ -62,7 +50,7 @@
           <li>【春】伏見稲荷大社 初午大祭</li>
           <li>【秋】伏見夢百衆の「新酒まつり」</li>
         </ul>
-        <div style="font-size:0.95em;">
+        <div class="caption">
           イベントの詳細は <a href="https://kyoto-fushimi-kanko.com/event/" target="_blank">伏見観光協会イベント情報</a> をご覧ください。
         </div>
       </div>
@@ -77,6 +65,7 @@
       </p>
     </div>
   </div>
+
   <footer>
     <div></div>
   </footer>
